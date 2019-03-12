@@ -1,5 +1,7 @@
 <% if @blog.errors.any?%>
-  <p>エラーあり！</p>
+  <% @blog.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end %>
 <% end %>
 <%= form_with(model: @blog,local: true) do |form| %>
   <%= form.label :title%>
